@@ -15,18 +15,21 @@ export class HomeComponent implements OnInit {
   constructor( private youTobeService: YoutobeService) { }
 
   ngOnInit(): void {
+      this.cargarVideos();
+  }
 
+  cargarVideos(){
     this.youTobeService.getVideos()
-      .subscribe((resp) => {
-        // console.log(resp);
-        this.videos.push( ... resp);
-        console.log(this.videos);
-        
-    });
+    .subscribe((resp) => {
+      // console.log(resp);
+      this.videos.push( ... resp);
+      // console.log(this.videos);
+      
+  });
   }
 
   mostrarVideo(video:Video){
-    console.log(video);
+    // console.log(video);
     Swal.fire({
       html:`
       <h4> ${video.title}</h4>
